@@ -3,7 +3,7 @@ dnf -y upgrade
 dnf -y install firewalld
 systemctl enable firewalld
 systemctl start firewalld
-systemd-escape --unescape firewalld
+systemctl restart firewalld
 setenforce 0
 sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 modprobe br_netfilter
