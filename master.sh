@@ -1,6 +1,6 @@
 #!bin/bash
-dnf -y upgrade 
-dnf -y install firewalld
+dnf -y upgrade && dnf install dos2unix
+dnf -y install firewalld 
 systemctl enable firewalld
 systemctl start firewalld
 systemctl restart firewalld
@@ -15,8 +15,8 @@ net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
 swapoff -a
-dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
+dnf config-manager -y --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+dnf install -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 dnf install docker-ce --nobest -y
 systemctl start docker
 systemctl enable docker
