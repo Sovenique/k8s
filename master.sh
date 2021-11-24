@@ -40,7 +40,7 @@ systemctl enable kubelet
 systemctl start kubelet
 kubeadm config images pull
 firewall-cmd --zone=public --permanent --add-port={6443,2379,2380,10250,10251,10252}/tcp
-echo "Enter the Worker's IP"
+echo "Enter the Worker's ipv4:"
 read varname
 firewall-cmd --zone=public --permanent --add-rich-rule 'rule family=ipv4 source address=$varname/32 accept'
 firewall-cmd --zone=public --permanent --add-rich-rule 'rule family=ipv4 source address=172.17.0.0/16 accept' 
