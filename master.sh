@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 dnf -y upgrade
 dnf -y install firewalld 
 systemctl enable firewalld
