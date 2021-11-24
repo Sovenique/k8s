@@ -1,5 +1,5 @@
 #!bin/bash
-dnf -y upgrade && dnf install -y dos2unix
+dnf -y upgrade
 dnf -y install firewalld 
 systemctl enable firewalld
 systemctl start firewalld
